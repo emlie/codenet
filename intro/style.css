@@ -1,0 +1,229 @@
+/* variables to dry the code, making maintenance easier */
+
+:root {
+  /* fonts, don't want serifs on the web */
+  --main-font-family: 'Open Sans', sans-serif;
+  --heading-font-family: 'Montserrat', sans-serif;
+  --code-font-family: 'Fira Mono', sans-serif;
+
+  /* colors */
+  --blue: #90C3D4;
+  --pink: #ffb3b3;
+  --green: #CDDBD3;
+  --almost-white: #f7f7f7;
+  --darker-white: #f1f1f1;
+  --light-light-gray: #E8E8E8;
+  --light-gray: #ccc;
+  --dark-gray: #585858;
+  --dark-dark-gray: #383838;
+  --almost-black: #282828;
+  --mat: #4E86BA;
+  --fys: #79B5D2;
+  --nor: #FDE05E;
+  --it: #97CEB7;
+  --fra: #BC94B7;
+  --kje: #18A68C;
+  --his: #F8E0C8;
+  --gym: #BCD74A;
+}
+
+* { /* select all elements */
+    box-sizing: border-box; /* padding and border are included in the total width and height of the elements - for the grid */
+    font-size: 62.5%; /* 1 rem = 10 px */
+}
+
+
+
+
+
+
+.l-wrap { /* layout wrap */
+    width: 100%;
+    min-height: 1px;
+    margin: 0 auto;
+    background-color: var(--almost-white);
+    overflow: auto;
+}
+
+/* fallback width and calculated width with css function */
+.col-1  { width: 8.33%;  width: calc((100% / 12) * 1);  }
+.col-2  { width: 16.66%; width: calc((100% / 12) * 2);  }
+.col-3  { width: 25%;    width: calc((100% / 12) * 3);  }
+.col-4  { width: 33.33%; width: calc((100% / 12) * 4);  }
+.col-5  { width: 41.66%; width: calc((100% / 12) * 5);  }
+.col-6  { width: 50%;    width: calc((100% / 12) * 6);  }
+.col-7  { width: 58.33%; width: calc((100% / 12) * 7);  }
+.col-8  { width: 66.66%; width: calc((100% / 12) * 8);  }
+.col-9  { width: 75%;    width: calc((100% / 12) * 9);  }
+.col-10 { width: 83.33%; width: calc((100% / 12) * 10); }
+.col-11 { width: 91.66%; width: calc((100% / 12) * 11); }
+.col-12 { width: 100%;   width: calc((100% / 12) * 12); }
+
+[class*="col-"] { /* all classes starting with col- */
+    min-height: 10px;
+    float: left;
+    padding: 10px;
+}
+
+/*
+total number of col in row must always add up to 12
+clear the flow to place items in col
+*/
+.row::after { /* after the content of each .row element */
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.row-top-margin {
+  margin-top: 6rem;
+  margin-bottom: 1rem;
+}
+
+
+
+
+/* smacss-organized */
+
+/* base rules: html elements (+ state rules) */
+body {
+  margin: 0 auto;
+  background-color: var(--almost-white);
+}
+
+footer, .foot {
+  margin: 15rem auto 4rem auto;
+  font-family: var(--main-font-family);
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--light-gray);
+}
+
+footer a {
+  font-size: inherit;
+  text-align: center;
+  text-decoration: none;
+  color: var(--light-gray);
+}
+
+h1 {
+  margin: 2rem 0 0 0;
+  padding: 4rem 2rem 2rem 2rem;
+  font-family: var(--heading-font-family);
+  font-weight: bold;
+  font-size: 4rem;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--pink);
+}
+
+h2 {
+  margin: 2rem 0 0 0;
+  padding-top: 2rem;
+  font-family: var(--heading-font-family);
+  font-weight: bold;
+  font-size: 3rem;
+  font-style: normal;;
+  text-align: left;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: var(--almost-white);
+}
+
+h3, .h3 {
+  margin: 0 0 0 0;
+  padding: 2rem 2rem 0 2rem;
+  font-family: var(--heading-font-family);
+  font-weight: bold;
+  font-size: 2rem;
+  font-style: normal;;
+  text-align: left;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: var(--pink);
+}
+
+p, .p {
+  margin: 1rem 0 2rem 0;
+  padding: 0 2rem 5rem 2rem;
+  font-family: var(--main-font-family);
+  font-weight: normal;
+  font-size: 1.5rem;
+  font-style: normal;;
+  text-align: justify;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--almost-black);
+}
+
+
+
+
+
+/* modules rules: classes */
+.menu {
+  font-family: var(--main-font-family);
+  font-weight: normal;
+  font-size: 1.25rem;
+  font-style: normal;;
+  text-align: justify;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--almost-black);
+}
+
+.menu a {
+  color: var(--pink);
+  transition: ease-in-out 0.2s;
+}
+
+.menu a:active {
+  color: var(--almost-white);
+}
+
+.menu a:hover {
+  opacity: 0.5;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: right;
+}
+
+.menu ul li {
+  display: inline-block;
+  padding: 0 1.5rem 0 1.5rem;
+  text-align: right;
+}
+
+.menu ul li:last-child {
+  padding-right: 0;
+}
+
+.menu img {
+  width: 1.5rem;
+  transition: ease-in-out 0.2s;
+}
+
+.menu img:hover {
+  opacity: 0.5;
+}
+
+.info {
+  min-height: 10px;
+  border: 1px solid transparent;
+  background-color: var(--almost-white);
+  box-shadow: 0 2px 10px var(--light-light-gray);
+}
+
+.blue {
+  font-size: inherit;
+  color: var(--blue);
+}
