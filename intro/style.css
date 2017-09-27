@@ -223,6 +223,19 @@ p, .p {
   box-shadow: 0 2px 10px var(--light-light-gray);
 }
 
+.btn {
+  display: inline-block;
+  padding: 1rem;
+  border: 1px solid var(--pink);
+  border-radius: 1rem;
+  font-size: inherit;
+  color: var(--pink);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 .blue {
   font-size: inherit;
   color: var(--blue);
